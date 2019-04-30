@@ -49,16 +49,4 @@ export class ContactosPage implements OnInit {
     }
 
   }
-  show(num:number){
-    if(num==1){
-      this.showContacts=true;
-      this.showPendientes=false;
-      return;
-    }
-    if(num==2){
-      this.showContacts=false;
-      this.showPendientes=true;
-      return;
-    }
-  }
 }
