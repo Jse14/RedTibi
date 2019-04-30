@@ -1,0 +1,34 @@
+<ion-card>
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <ion-card-header>
+        <ion-card-title>{{titulo}}</ion-card-title>
+        <ion-card-subtitle>{{subtitulo}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-icon slot="end" ios="ios-more" md="md-more" style="float:right;"></ion-icon>
+  </ion-item>
+    
+  <ion-card-content>
+    <img src="assets/LFM_0083_apaisada.jpg" style="margin:auto;width:100%;height: 150px;" />
+      <ion-row>
+        <div style="margin: auto;">
+          <ion-button size="medium" fill="outline">
+            <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
+            <ion-label>{{numLikes}}</ion-label>
+          </ion-button>
+          <ion-button size="medium" fill="outline">
+            <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+            <ion-label>{{numComents}}</ion-label>
+          </ion-button>
+          <ion-button size="medium" fill="outline">
+            <ion-icon ios="ios-bookmark" md="md-bookmark"></ion-icon>
+            <ion-label>&nbsp;</ion-label>
+          </ion-button>
+        </div>
+      </ion-row>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, provident? Sint ipsum ...
+      
+    </ion-card-content>
+</ion-card>
