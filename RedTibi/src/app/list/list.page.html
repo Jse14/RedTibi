@@ -9,21 +9,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  
+<ion-content>  
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <!--<ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>-->
-      <app-muro-publicacion></app-muro-publicacion>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+    <app-muro-publicacion *ngFor="let item of items" [titulo]='item.title' [subtitulo]="item.subtitle" [numLikes]="item.numLikes" [numComents]="item.numComents"></app-muro-publicacion>
+  </ion-list>  
 </ion-content>

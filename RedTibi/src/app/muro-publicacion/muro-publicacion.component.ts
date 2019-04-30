@@ -5,10 +5,12 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './muro-publicacion.component.html',
   styleUrls: ['./muro-publicacion.component.scss'],
 })
-export class MuroPublicacionComponent {
+export class MuroPublicacionComponent implements OnInit {
   @Input() titulo:string;
   @Input() subtitulo:string;
-  tituloExtra:string = "prueba"
-  constructor() {
-  }
+  @Input() numLikes:number;
+  @Input() numComents:number;
+
+  constructor() {}
+  ngOnInit() {}
 }
