@@ -21,7 +21,7 @@ export class AppComponent {
       icon: 'list'
     },{
       title: 'Perfil',
-      url: '/list',
+      url: '/perfil',
       icon: 'contact'
     },{
       title: 'Contactos',
