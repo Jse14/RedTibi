@@ -19,6 +19,26 @@ export class AppComponent {
       title: 'Muro',
       url: '/list',
       icon: 'list'
+    },{
+      title: 'Perfil',
+      url: '/list',
+      icon: 'contact'
+    },{
+      title: 'Contactos',
+      url: '/list',
+      icon: 'people'
+    },{
+      title: 'Eventos',
+      url: '/list',
+      icon: 'images'
+    },{
+      title: 'Mensajes',
+      url: '/list',
+      icon: 'chatbubbles'
+    },{
+      title: 'Anuncios',
+      url: '/list',
+      icon: 'cash'
     }
   ];
 
