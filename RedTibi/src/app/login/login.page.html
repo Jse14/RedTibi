@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ionic Basic Demo</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
+    <script src="cordova.js"></script>
+  </head>
+  <body>
+  </body>
+</html>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+    <ion-content>
+        <div class="text-center login-block">
+            <form ng-submit="doLogin()">
+            <div class="list">
+                  <label class="item item-input">
+                        <input type="email" placeholder="Email address"/>
+                  </label>
+                  <label class="item item-input">
+                        <input type="password" placeholder="Password"/>
+                  </label>
+                  <a ui-sref="app.change-password">Forgot Password ?</a>
+                  <a>Don’t have an account ?</a>
+                  <label class="item">
+                        <button class="button button-block button-positive" type="submit">Login</button>
+                  </label>
+                </div>
+          </form>
+        </div>    
+    </ion-content>
