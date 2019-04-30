@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Contactos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-segment (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="friends">
+          <ion-label>Amigos</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="pendientes">
+          <ion-label>Pendientes</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+  <ion-searchbar [(ngModel)]="buscado" (ionChange)="filter()"></ion-searchbar>
+
+  <!-- Lista de los usuarios pendientes-->
+  <ion-list *ngIf="showPendientes">
+    <ion-item *ngFor="let pendiente of contactosPendientesFiltrados">
+      <ion-avatar slot="start">
+        <img src="assets/icon/favicon.png">
+      </ion-avatar>
+      <ion-label text-wrap>
+        <ion-text color="primary">
+          <h2>{{pendiente}}</h2>
+        </ion-text>
+        <ion-text color="secondary">
+          <p>@asdf</p>
+        </ion-text>
+      </ion-label>
+      <ion-button color="success"><ion-icon name="checkmark-circle"></ion-icon>Aceptar</ion-button>
+      <ion-button color="danger"><ion-icon name="close-circle"></ion-icon>Rechazar</ion-button>
+    </ion-item>
+  </ion-list>  
+  
+  <!-- Lista de contactos del usuario -->
+  <ion-list *ngIf="showContacts">
+    <ion-item *ngFor="let contact of contactosFiltrados">
+      <ion-avatar slot="start">
+        <img src="assets/icon/favicon.png">
+      </ion-avatar>
+      <ion-label text-wrap>
+        <ion-text color="primary">
+          <h2>{{contact}}</h2>
+        </ion-text>
+        <ion-text color="secondary">
+          <p>@asdf</p>
+        </ion-text>
+      </ion-label>
+      <ion-button>Siguiendo</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

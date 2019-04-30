@@ -25,7 +25,7 @@ export class AppComponent {
       icon: 'contact'
     },{
       title: 'Contactos',
-      url: '/list',
+      url: '/contactos',
       icon: 'people'
     },{
       title: 'Eventos',

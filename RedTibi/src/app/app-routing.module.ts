@@ -7,15 +7,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' }
-
+  { path: 'home', loadChildren: './home/home.module#HomePageModule'},
+  { path: 'list', loadChildren: './list/list.module#ListPageModule'},
+  { path: 'contactos', loadChildren: './contactos/contactos.module#ContactosPageModule' },
+  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' }
 ];
 
 @NgModule({
