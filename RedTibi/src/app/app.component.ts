@@ -44,6 +44,11 @@ export class AppComponent {
       title: 'Login',
       url: '/login',
       icon: 'cash'
+    },
+    {
+      title: 'Registro',
+      url: '/registro',
+      icon: 'cash'
     }
   ];
 
