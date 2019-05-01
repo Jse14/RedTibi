@@ -35,8 +35,6 @@ export class ContactosPage implements OnInit {
   }
 
   segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
-
     if(ev.detail.value=="friends"){
       this.showContacts=true;
       this.showPendientes=false;
@@ -47,6 +45,15 @@ export class ContactosPage implements OnInit {
       this.showPendientes=true;
       return;
     }
+  }
 
+  acceptContact(name:string){
+    this.contactos.push(this.contactosPendientes[name])
+    this.contactosPendientes.splice(name,1)
+    this.filter();
+  }
+  discardContact(name:string){
+    this.contactosPendientes.splice(name,1)
+    this.filter();
   }
 }

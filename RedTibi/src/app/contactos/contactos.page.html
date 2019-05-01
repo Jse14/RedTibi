@@ -19,7 +19,7 @@
 
   <!-- Lista de los usuarios pendientes-->
   <ion-list *ngIf="showPendientes">
-    <ion-item *ngFor="let pendiente of contactosPendientesFiltrados">
+    <ion-item *ngFor="let pendiente of contactosPendientesFiltrados; let i = index">
       <ion-avatar slot="start">
         <img src="assets/icon/favicon.png">
       </ion-avatar>
@@ -31,14 +31,14 @@
           <p>@asdf</p>
         </ion-text>
       </ion-label>
-      <ion-button color="success"><ion-icon name="checkmark-circle"></ion-icon>Aceptar</ion-button>
-      <ion-button color="danger"><ion-icon name="close-circle"></ion-icon>Rechazar</ion-button>
+      <ion-button color="success" (click)="acceptContact(i)"><ion-icon name="checkmark-circle"></ion-icon>Aceptar</ion-button>
+      <ion-button color="danger" (click)="discardContact(i)"><ion-icon name="close-circle"></ion-icon>Rechazar</ion-button>
     </ion-item>
   </ion-list>  
   
   <!-- Lista de contactos del usuario -->
   <ion-list *ngIf="showContacts">
-    <ion-item *ngFor="let contact of contactosFiltrados">
+    <ion-item *ngFor="let contact of contactosFiltrados; let j = index">
       <ion-avatar slot="start">
         <img src="assets/icon/favicon.png">
       </ion-avatar>
@@ -50,7 +50,7 @@
           <p>@asdf</p>
         </ion-text>
       </ion-label>
-      <ion-button>Siguiendo</ion-button>
+      <ion-button color="primary" (click)="unfollow(j)"><ion-icon name="close-circle"></ion-icon>Siguiendo</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
