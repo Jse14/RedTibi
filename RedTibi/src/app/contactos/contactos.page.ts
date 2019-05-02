@@ -6,6 +6,7 @@ import { filterQueryId } from '@angular/core/src/view/util';
   templateUrl: './contactos.page.html',
   styleUrls: ['./contactos.page.scss'],
 })
+
 export class ContactosPage implements OnInit {
 
   contactos;
