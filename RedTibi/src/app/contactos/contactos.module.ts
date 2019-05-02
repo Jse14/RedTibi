@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { ContactosPage } from './contactos.page';
 
+import {TranslateModule} from '@ngx-translate/core'
+
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +21,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     RouterModule.forChild(routes)
   ],
   declarations: [ContactosPage]

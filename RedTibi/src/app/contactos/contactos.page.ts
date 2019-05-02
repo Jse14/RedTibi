@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { filterQueryId } from '@angular/core/src/view/util';
 
 @Component({
   selector: 'app-contactos',

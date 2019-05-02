@@ -3,17 +3,17 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Contactos</ion-title>
+    <ion-title>{{ 'Menu.Contactos' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-segment (ionChange)="segmentChanged($event)">
         <ion-segment-button value="friends">
-          <ion-label>Amigos</ion-label>
+          <ion-label>{{ 'Contactos.Amigos' | translate }}</ion-label>
         </ion-segment-button>
         <ion-segment-button value="pendientes">
-          <ion-label>Pendientes</ion-label>
+          <ion-label>{{ 'Contactos.Pendientes' | translate }}</ion-label>
         </ion-segment-button>
     </ion-segment>
 
@@ -33,8 +33,8 @@
           <p>@asdf</p>
         </ion-text>
       </ion-label>
-      <ion-button color="success" (click)="acceptContact(i)"><ion-icon name="checkmark-circle"></ion-icon>Aceptar</ion-button>
-      <ion-button color="danger" (click)="discardContact(i)"><ion-icon name="close-circle"></ion-icon>Rechazar</ion-button>
+      <ion-button color="success" (click)="acceptContact(i)"><ion-icon name="checkmark-circle"></ion-icon>{{ 'Contactos.Aceptar' | translate }}</ion-button>
+      <ion-button color="danger" (click)="discardContact(i)"><ion-icon name="close-circle"></ion-icon>{{ 'Contactos.Rechazar' | translate }}</ion-button>
     </ion-item>
   </ion-list>  
   
@@ -52,7 +52,7 @@
           <p>@asdf</p>
         </ion-text>
       </ion-label>
-      <ion-button color="primary" (click)="unfollow(j)"><ion-icon name="close-circle"></ion-icon>Siguiendo</ion-button>
+      <ion-button color="primary" (click)="unfollow(j)"><ion-icon name="close-circle"></ion-icon>{{ 'Contactos.Siguiendo' | translate }}</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
