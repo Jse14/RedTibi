@@ -39,7 +39,7 @@ export class AppComponent {
       icon: 'chatbubbles'
     },{
       title: 'Anuncios',
-      url: '/list',
+      url: '/anuncio',
       icon: 'cash'
     },{
       title: 'Ajustes',

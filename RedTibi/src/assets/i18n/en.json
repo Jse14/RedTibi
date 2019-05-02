@@ -19,6 +19,13 @@
     "Ajustes":{
         "EligeIdioma":"Choose your language"
     },
+    "Anuncios":{
+        "Seleccionar fecha":"Select date",
+        "Datos bancarios":"Bank data",
+        "Nº de tarjeta":"Card Number",
+        "Nº de CVV":"CVV Number",
+        "Crear":"Create"
+    },
     "demo": {
         "title": "Translation demo",
         "text": "This is a simple demonstration app for ngx-translate"
