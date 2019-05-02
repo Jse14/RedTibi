@@ -1,0 +1,23 @@
+{
+    "Menu":{
+        "Home":"Inici",
+        "Muro":"Mur",
+        "Perfil":"Perfil",
+        "Contactos":"Contactes",
+        "Eventos":"Esdeveniments",
+        "Mensajes":"Missatges",
+        "Anuncios":"Anuncis",
+        "Ajustes":"Ajustaments"
+    },
+    "Contactos":{
+        "Amigos":"Amics",
+        "Pendientes":"Pendents",
+        "Aceptar":"Acceptar",
+        "Rechazar":"Rebutjar",
+        "Siguiendo":"Seguint"
+    },
+    "demo": {
+        "title": "Demo de traduccion",
+        "text": "This is a simple demonstration app for ngx-translate"
+    }
+}
