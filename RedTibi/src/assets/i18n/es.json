@@ -18,6 +18,13 @@
     },
     "Ajustes":{
         "EligeIdioma":"Escoge un idoma"
+    },
+    "Anuncios":{
+        "Seleccionar fecha":"Seleccionar fecha",
+        "Datos bancarios":"Datos bancarios",
+        "Nº de tarjeta":"Nº de tarjeta",
+        "Nº de CVV":"Nº de CVV",
+        "Crear":"Crear"
     },    
     "demo": {
         "title": "Demo de traduccion",
