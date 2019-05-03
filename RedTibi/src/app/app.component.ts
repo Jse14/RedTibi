@@ -31,7 +31,7 @@ export class AppComponent {
       icon: 'people'
     },{
       title: 'Eventos',
-      url: '/list',
+      url: '/eventos',
       icon: 'images'
     },{
       title: 'Mensajes',

@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'list', loadChildren: './list/list.module#ListPageModule'},
   { path: 'contactos', loadChildren: './contactos/contactos.module#ContactosPageModule' },
   { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },  { path: 'ajustes', loadChildren: './ajustes/ajustes.module#AjustesPageModule' },
-  { path: 'anuncio', loadChildren: './anuncio/anuncio.module#AnuncioPageModule' }
+  { path: 'anuncio', loadChildren: './anuncio/anuncio.module#AnuncioPageModule' },
+  { path: 'eventos', loadChildren: './eventos/eventos.module#EventosPageModule' }
 
 ];
 
