@@ -8,17 +8,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-segment (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="Asistir">
-      <ion-label> Proximos eventos </ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="Creados">
-      <ion-label> Creados por mi </ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="Pendientes">
-        <ion-label> Pendientes </ion-label>
+  <ion-segment  (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="Asistir" style="font-size:11px;">
+        Proximos eventos
       </ion-segment-button>
-  </ion-segment>
+      <ion-segment-button value="Creados" style="font-size:11px;">
+        Mis Eventos
+      </ion-segment-button>
+      <ion-segment-button value="Pendientes" style="font-size:11px;">
+          Pendientes
+        </ion-segment-button>
+    </ion-segment>
 
     <!-- Lista de eventos a los que asistirá el usuario -->
     <ion-list *ngIf="showCreados">
