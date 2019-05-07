@@ -10,9 +10,12 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule'},
   { path: 'list', loadChildren: './list/list.module#ListPageModule'},
   { path: 'contactos', loadChildren: './contactos/contactos.module#ContactosPageModule' },
-  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },  { path: 'ajustes', loadChildren: './ajustes/ajustes.module#AjustesPageModule' },
+  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'ajustes', loadChildren: './ajustes/ajustes.module#AjustesPageModule' },
   { path: 'anuncio', loadChildren: './anuncio/anuncio.module#AnuncioPageModule' },
-  { path: 'eventos', loadChildren: './eventos/eventos.module#EventosPageModule' }
+  { path: 'eventos', loadChildren: './eventos/eventos.module#EventosPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'registro', loadChildren: './registro/registro.module#RegistroPageModule' }
 
 ];
 
