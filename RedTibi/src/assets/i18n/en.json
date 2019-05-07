@@ -1,0 +1,33 @@
+{
+    "Menu":{
+        "Home":"Home",
+        "Muro":"Wall",
+        "Perfil":"Profile",
+        "Contactos":"Contacts",
+        "Eventos":"Events",
+        "Mensajes":"Messages",
+        "Anuncios":"Ads",
+        "Ajustes":"Settings"
+    },
+    "Contactos":{
+        "Amigos":"Friends",
+        "Pendientes":"To confirm",
+        "Aceptar":"Accept",
+        "Rechazar":"Deny",
+        "Siguiendo":"Following"
+    },
+    "Ajustes":{
+        "EligeIdioma":"Choose your language"
+    },
+    "Anuncios":{
+        "Seleccionar fecha":"Select date",
+        "Datos bancarios":"Bank data",
+        "Nº de tarjeta":"Card Number",
+        "Nº de CVV":"CVV Number",
+        "Crear":"Create"
+    },
+    "demo": {
+        "title": "Translation demo",
+        "text": "This is a simple demonstration app for ngx-translate"
+    }
+}

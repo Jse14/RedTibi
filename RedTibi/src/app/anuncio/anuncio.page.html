@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'Menu.Anuncios' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="onAnuncioForm" class="list-form">
+
+        <ion-item>
+            <ion-icon name="calendar" item-start></ion-icon>
+            <ion-label>&nbsp;{{ 'Anuncios.Seleccionar fecha' | translate }}</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name="image" item-start></ion-icon>
+            <ion-label>&nbsp;</ion-label>
+            <ion-input type="file" accept="image/*"></ion-input>
+        </ion-item>
+
+        <ion-item-group>
+          <ion-item-divider>
+            <ion-label color="primary"><h1>{{ 'Anuncios.Datos bancarios' | translate }}</h1></ion-label>
+          </ion-item-divider>
+            
+          <ion-item>
+              <ion-input placeholder="{{ 'Anuncios.Nº de tarjeta' | translate }}" clearInput></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input placeholder="{{ 'Anuncios.Nº de CVV' | translate }}" clearInput></ion-input>
+          </ion-item>
+        </ion-item-group>
+      </form>
+
+      <div>
+          <ion-button icon-left size="medium" expand="full" shape="round" color="dark" tappable>
+            <ion-icon name="cloud-upload"></ion-icon>
+            &nbsp;{{ 'Anuncios.Crear' | translate }}
+          </ion-button>
+      
+        </div>
+
+</ion-content>

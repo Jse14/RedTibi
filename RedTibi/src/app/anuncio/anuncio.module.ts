@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+
 import { IonicModule } from '@ionic/angular';
 
-import { PerfilPage } from './perfil.page';
-
+import { AnuncioPage } from './anuncio.page';
+import {TranslateModule} from '@ngx-translate/core'
+import { ReactiveFormsModule } from '@angular/forms'
 
 const routes: Routes = [
   {
     path: '',
-    component: PerfilPage
+    component: AnuncioPage
   }
 ];
 
@@ -21,8 +22,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ],
-  declarations: [PerfilPage]
+  declarations: [AnuncioPage]
 })
-export class PerfilPageModule {}
+export class AnuncioPageModule {}

@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+
 import { IonicModule } from '@ionic/angular';
 
-import { PerfilPage } from './perfil.page';
-
+import { AjustesPage } from './ajustes.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
     path: '',
-    component: PerfilPage
+    component: AjustesPage
   }
 ];
 
@@ -23,6 +23,6 @@ const routes: Routes = [
     TranslateModule.forChild(),
     RouterModule.forChild(routes)
   ],
-  declarations: [PerfilPage]
+  declarations: [AjustesPage]
 })
-export class PerfilPageModule {}
+export class AjustesPageModule {}

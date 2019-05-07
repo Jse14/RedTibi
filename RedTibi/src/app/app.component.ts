@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
@@ -25,11 +27,11 @@ export class AppComponent {
       icon: 'contact'
     },{
       title: 'Contactos',
-      url: '/list',
+      url: '/contactos',
       icon: 'people'
     },{
       title: 'Eventos',
-      url: '/list',
+      url: '/eventos',
       icon: 'images'
     },{
       title: 'Mensajes',
@@ -37,8 +39,9 @@ export class AppComponent {
       icon: 'chatbubbles'
     },{
       title: 'Anuncios',
-      url: '/list',
+      url: '/anuncio',
       icon: 'cash'
+<<<<<<< HEAD
     },
     {
       title: 'Login',
@@ -49,13 +52,20 @@ export class AppComponent {
       title: 'Registro',
       url: '/registro',
       icon: 'cash'
+=======
+    },{
+      title: 'Ajustes',
+      url: '/ajustes',
+      icon: 'settings'
+>>>>>>> master
     }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private translate: TranslateService
   ) {
     this.initializeApp();
   }
@@ -64,6 +74,9 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.translate.addLangs(['es','en']);
+      this.translate.setDefaultLang('en');
+      this.translate.use('es');
     });
   }
 }

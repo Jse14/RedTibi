@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{ 'Menu.Ajustes' | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+          <ion-label>{{'Ajustes.EligeIdioma' | translate}}</ion-label>
+          <ion-select (ionChange)="choose($event)">
+            <ion-select-option *ngFor="let item of idioms" [value]="item.value">
+              {{ item.label }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <div padding>
+        <h1>{{ 'Menu.Ajustes' | translate }}</h1>
+        <p>{{ 'Menu.Contactos' | translate }}</p>
+        <p>{{ 'Menu.Muro' | translate }}</p>
+      </div>
+</ion-content>

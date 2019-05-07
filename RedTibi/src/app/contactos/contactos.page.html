@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'Menu.Contactos' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-segment (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="friends">
+          <ion-label>{{ 'Contactos.Amigos' | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="pendientes">
+          <ion-label>{{ 'Contactos.Pendientes' | translate }}</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+  <ion-searchbar [(ngModel)]="buscado" (ionChange)="filter()"></ion-searchbar>
+
+  <!-- Lista de los usuarios pendientes-->
+  <ion-list *ngIf="showPendientes">
+    <ion-item *ngFor="let pendiente of contactosPendientesFiltrados; let i = index">
+      <ion-avatar slot="start">
+        <img src="assets/users/user2.PNG">
+      </ion-avatar>
+      <ion-label text-wrap>
+        <ion-text color="primary">
+          <h2>{{pendiente}}</h2>
+        </ion-text>
+        <ion-text color="secondary">
+          <p>@asdf</p>
+        </ion-text>
+      </ion-label>
+      <ion-button color="success" (click)="acceptContact(i)"><ion-icon name="checkmark-circle"></ion-icon>{{ 'Contactos.Aceptar' | translate }}</ion-button>
+      <ion-button color="danger" (click)="discardContact(i)"><ion-icon name="close-circle"></ion-icon>{{ 'Contactos.Rechazar' | translate }}</ion-button>
+    </ion-item>
+  </ion-list>  
+  
+  <!-- Lista de contactos del usuario -->
+  <ion-list *ngIf="showContacts">
+    <ion-item *ngFor="let contact of contactosFiltrados; let j = index">
+      <ion-avatar slot="start">
+        <img src="assets/users/user2.PNG">
+      </ion-avatar>
+      <ion-label text-wrap>
+        <ion-text color="primary">
+          <h2>{{contact}}</h2>
+        </ion-text>
+        <ion-text color="secondary">
+          <p>@asdf</p>
+        </ion-text>
+      </ion-label>
+      <ion-button color="primary" (click)="unfollow(j)"><ion-icon name="close-circle"></ion-icon>{{ 'Contactos.Siguiendo' | translate }}</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
