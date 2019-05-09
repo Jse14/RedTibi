@@ -5,12 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
+import { SingletonService } from './singleton.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+
   public appPages = [
     {
       title: 'Home',
@@ -41,30 +43,27 @@ export class AppComponent {
       title: 'Anuncios',
       url: '/anuncio',
       icon: 'cash'
-    },
-    {
-      title: 'Login',
-      url: '/login',
-      icon: 'cash'
-    },
-    {
-      title: 'Registro',
-      url: '/registro',
-      icon: 'cash'
     },{
       title: 'Ajustes',
       url: '/ajustes',
       icon: 'settings'
+    },{
+      title: 'Salir',
+      url: '/login',
+      icon: 'log-out'
     }
-  ];
 
+  ];
+ 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private translate: TranslateService
+    private translate: TranslateService,
+    public global: SingletonService
   ) {
     this.initializeApp();
+    this.global.loginState = false;
   }
 
   initializeApp() {
