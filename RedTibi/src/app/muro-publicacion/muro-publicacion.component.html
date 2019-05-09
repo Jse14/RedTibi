@@ -7,6 +7,7 @@
         <ion-card-title>{{titulo}}</ion-card-title>
         <ion-card-subtitle>{{subtitulo}}</ion-card-subtitle>
     </ion-card-header>
+    <ion-icon slot="end" name="pin"></ion-icon>
     <ion-icon slot="end" ios="ios-more" md="md-more" style="float:right;"></ion-icon>
   </ion-item>
     
@@ -26,9 +27,12 @@
             <ion-icon ios="ios-bookmark" md="md-bookmark"></ion-icon>
             <ion-label>&nbsp;</ion-label>
           </ion-button>
+          <ion-button size="medium" fill="outline" (click)="openModal()">
+            <ion-icon ios="ios-bookmark" md="md-bookmark"></ion-icon>
+            <ion-label>&nbsp;</ion-label>
+          </ion-button>
         </div>
       </ion-row>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, provident? Sint ipsum ...
-      
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, provident? Sint ipsum ...  
     </ion-card-content>
 </ion-card>
