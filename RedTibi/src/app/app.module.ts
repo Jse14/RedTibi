@@ -14,6 +14,8 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 
+import { SingletonService } from './singleton.service';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -34,6 +36,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
+    SingletonService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

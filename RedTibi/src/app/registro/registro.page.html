@@ -1,33 +1,68 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-title>registro</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <form #form="ngForm" (ngSubmit)="register(form)" method="post">
+  <form [formGroup]="onRegisterForm" class="list-form">
     <ion-item>
-        <ion-label position="floating">First Name</ion-label>
-        <ion-input ngModel name="fName"></ion-input>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input color="secondary" type="fName" formControlName="fName"></ion-input>
     </ion-item>
+
+    <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('fName').touched && onRegisterForm.get('fName').hasError('required')">
+        <ion-text color="warning">
+          Completar el campo nombre
+        </ion-text>
+    </p>
   
     <ion-item>
-      <ion-label position="floating">Last Name</ion-label>
-      <ion-input ngModel name="lName"></ion-input>
+      <ion-label position="floating">Apellidos</ion-label>
+      <ion-input color="secondary" type="lName" formControlName="lName"></ion-input>
     </ion-item>
+
+    <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('lName').touched && onRegisterForm.get('lName').hasError('required')">
+        <ion-text color="warning">
+          Completar el campo apellidos
+        </ion-text>
+    </p>
   
     <ion-item>
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" ngModel name="email"></ion-input>
+      <ion-input color="secondary" type="email" formControlName="email"></ion-input>
     </ion-item>
+
+    <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('email').touched && onRegisterForm.get('email').hasError('required')">
+        <ion-text color="warning">
+          Email incorrecto
+        </ion-text>
+    </p>
   
     <ion-item>
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" ngModel name="password"></ion-input>
+      <ion-input color="secondary" type="password" formControlName="password"></ion-input>
     </ion-item>
+
+    <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">
+        <ion-text color="warning">
+          Completar el campo contraseña
+        </ion-text>
+    </p>
   
-    <ion-button type="submit" expand="full" color="danger">Register</ion-button>
+    <br>
+    <div>
+        <ion-button icon-left size="medium" expand="full" shape="round" color="danger" (click)="goLogin()" [disabled]="!onRegisterForm.valid" tappable>
+          <ion-icon name="person-add"></ion-icon>
+          &nbsp;Registro
+        </ion-button>
+    </div>
   </form>
   <p text-center>Already have a account?</p>
-  <ion-button expand="full" color="success" (click)="loginModal()">Login</ion-button>
+  <div>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="success" (click)="goLogin()" tappable>
+        <ion-icon name="return-left"></ion-icon>
+        &nbsp;Login
+      </ion-button>
+  </div>
 </ion-content> 

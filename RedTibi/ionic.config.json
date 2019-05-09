@@ -1,5 +1,7 @@
 {
   "name": "RedTibi",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
