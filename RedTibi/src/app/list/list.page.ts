@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Publi } from '../publi';
 
 @Component({
   selector: 'app-list',
@@ -8,22 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class ListPage implements OnInit {
   private selectedItem: any;
 
-  public items: Array<{ title: string; subtitle: string; numLikes:any;numComents:any}> = [];
+  //public items: Array<{ title: string; subtitle: string; numLikes:any;numComents:any}> = [];
+  public items: Array<Publi>=[];
   constructor() {
     for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        subtitle: 'This is item #' + i,
-        numLikes:Math.floor(Math.random()*100),
-        numComents:Math.floor(Math.random()*100)
-      });
+      var nuevaPubli = new Publi();
+      nuevaPubli.title = 'user' + i;
+      nuevaPubli.subtitle= '@User' + i;
+      nuevaPubli.numLikes=Math.floor(Math.random()*100);
+      nuevaPubli.numComents=Math.floor(Math.random()*100);
+      this.items.push(nuevaPubli);
     }
   }
 
   ngOnInit() {
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
 }

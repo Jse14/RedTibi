@@ -19,7 +19,10 @@ export class MuroPublicacionComponent implements OnInit {
     const modal = await this.modalController.create({
       component: PublicacionPage,
       componentProps:{
-        titulo: this.titulo
+        titulo: this.titulo,
+        subtitulo:this.subtitulo,
+        numLikes:this.numLikes,
+        numComents:this.numComents
       }
     });
     modal.present();
