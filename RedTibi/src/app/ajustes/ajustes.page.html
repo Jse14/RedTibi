@@ -23,4 +23,8 @@
         <p>{{ 'Menu.Contactos' | translate }}</p>
         <p>{{ 'Menu.Muro' | translate }}</p>
       </div>
+      <ion-button expand="block" color="medium" (click)="changeTheme('autumn')">Autumn</ion-button>
+      <ion-button expand="block" color="medium" (click)="changeTheme('night')">Dark</ion-button>
+      <ion-button expand="block" color="medium" (click)="changeTheme('neon')">Neon</ion-button>
+      <ion-button expand="block" color="medium" (click)="changeTheme('')">Default</ion-button>
 </ion-content>
