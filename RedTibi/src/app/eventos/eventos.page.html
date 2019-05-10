@@ -16,8 +16,8 @@
         Mis Eventos
       </ion-segment-button>
       <ion-segment-button value="Pendientes" style="font-size:11px;">
-          Pendientes
-        </ion-segment-button>
+        Pendientes
+      </ion-segment-button>
     </ion-segment>
 
     <!-- Lista de eventos a los que asistirá el usuario -->
@@ -102,5 +102,9 @@
           </ion-card-content>
         </ion-card>
       </ion-list>
-
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button href='/crear-evento'>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
 </ion-content>

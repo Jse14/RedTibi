@@ -26,7 +26,7 @@ export class EventosPage implements OnInit {
   public items2: Array<{ event: string; date: string; description:string; numLikes:any;numComents:any}> = [];
   public items3: Array<{ event: string; date: string; description:string; numLikes:any;numComents:any}> = [];
 
-  constructor() { 
+  constructor() {
     this.asistir = ['Partido de fútbol', 'Beerpong', 'Fiesta universitaria'];
     this.creados = ['Picnic en la UA', 'Torneo de paddle'];
     this.pendientes = ['Cervezas en mi casa', 'Partido de baloncesto'];
@@ -35,9 +35,9 @@ export class EventosPage implements OnInit {
     this.dates2 = ['29/05/2019', '01/06/2019', '19/06/2019'];
     this.dates3 = ['05/06/2019', '10/06/2019'];
 
-    this.descripcionAsistir = ['Partido de fútbol a las 11 en el campo de San Blas', 
+    this.descripcionAsistir = ['Partido de fútbol a las 11 en el campo de San Blas',
     'Beerpong en mi casa a las 12', 'Fiesta en sala The One para la despedida del curso'];
-    this.descripcionCreados = ['Picnic en la zona de los patos de la UA', 
+    this.descripcionCreados = ['Picnic en la zona de los patos de la UA',
     'Torneo de padel en las pistas de la UA. Inscripcion 3 euros.'];
     this.descripcionPendientes = ['Cervecitas de tranquis en mi casa', 'Basquet 3 contra 3, quien pierda invita a una ronda'];
     for (let i = 0; i < this.asistir.length; i++) {

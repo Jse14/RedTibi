@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'Crear Evento' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="onEventForm" class="list-form">
+    <br>
+        <ion-input placeholder="Titulo" clearInput></ion-input>
+        <br>
+        <ion-item>
+            <ion-icon name="image" item-start></ion-icon>
+            <ion-label>&nbsp; Imagen</ion-label>
+            <ion-input type="file" accept="image/*"></ion-input>
+        </ion-item>
+        <br>
+        <ion-textarea placeholder="Descripción" clearInput></ion-textarea>
+        <br>
+        <ion-item>
+            <ion-icon name="calendar" item-start></ion-icon>
+            <ion-label>&nbsp; Fecha</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+        </ion-item>
+        <br>
+        <ion-input placeholder="Lugar: Introduzca calle" clearInput></ion-input>
+        <br>
+        <ion-item>
+          <ion-label>Tipo</ion-label>
+          <ion-select placeholder="Elige uno">
+            <ion-select-option value="d">Deportivo</ion-select-option>
+            <ion-select-option value="f">Fiesta</ion-select-option>
+            <ion-select-option value="m">Moda</ion-select-option>
+            <ion-select-option value="c">Cultura</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label>Carácter</ion-label>
+          <ion-select placeholder="Elige uno" name="caracter">
+            <ion-select-option value="pr">Privado</ion-select-option>
+            <ion-select-option value="pu">Publico</ion-select-option>
+          </ion-select>
+        </ion-item>
+  </form>
+  <br>
+  <br>
+
+  <div>
+    <ion-button expand="block" fill="outline">
+      <ion-icon name="cloud-upload"></ion-icon>
+      &nbsp;Crear Evento
+    </ion-button>
+  </div>
+</ion-content>
