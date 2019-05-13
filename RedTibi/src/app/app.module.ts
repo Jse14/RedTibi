@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { PublicacionPageModule } from './publicacion/publicacion.module';
 
 import { SingletonService } from './singleton.service';
 
@@ -23,6 +24,7 @@ import { SingletonService } from './singleton.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    PublicacionPageModule,
     // configure the imports
     HttpClientModule,
     TranslateModule.forRoot({

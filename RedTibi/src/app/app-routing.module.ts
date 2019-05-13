@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'crear-evento', loadChildren: './crear-evento/crear-evento.module#CrearEventoPageModule' }
 
 
+
 ];
 
 @NgModule({

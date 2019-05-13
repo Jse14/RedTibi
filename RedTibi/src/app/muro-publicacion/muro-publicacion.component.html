@@ -1,7 +1,7 @@
 <ion-card>
   <ion-item>
     <ion-avatar slot="start">
-      <img src="assets/icon/sample_avatar.png">
+      <img src="assets/users/{{titulo}}.PNG">
     </ion-avatar>
     <ion-card-header>
         <ion-card-title>{{titulo}}</ion-card-title>
@@ -11,7 +11,7 @@
   </ion-item>
     
   <ion-card-content>
-    <img src="assets/LFM_0083_apaisada.jpg" style="margin:auto;width:100%;height: 150px;" />
+    <img (click)="openModal()" src="assets/LFM_0083_apaisada.jpg" style="margin:auto;width:100%;height: 150px;" />
       <ion-row>
         <div style="margin: auto;">
           <ion-button size="medium" fill="outline">
@@ -28,7 +28,6 @@
           </ion-button>
         </div>
       </ion-row>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, provident? Sint ipsum ...
-      
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, provident? Sint ipsum ...  
     </ion-card-content>
 </ion-card>
