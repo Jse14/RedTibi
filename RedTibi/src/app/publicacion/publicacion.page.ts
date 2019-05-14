@@ -1,12 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 import { Publi } from '../publi';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 import OlMap from 'ol/Map';
 import OlXYZ from 'ol/source/XYZ';
 import OlTileLayer from 'ol/layer/Tile';
 import OlView from 'ol/View';
 import {fromLonLat} from 'ol/proj.js';
+import Feature from 'ol/Feature.js';
+import Point from 'ol/geom/Point.js';
+import {Icon, Style,Stroke,Circle} from 'ol/style.js';
+import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
+import VectorSource from 'ol/source/Vector.js';
 import {defaults as defaultControls, FullScreen, OverviewMap} from 'ol/control.js';
 
 @Component({
@@ -20,6 +26,10 @@ export class PublicacionPage implements OnInit {
   source: OlXYZ = null;
   layer: OlTileLayer;
   view: OlView;
+  slideOpts = {
+    initialSlide: 0,
+    speed: 400
+  };
   titulo=null;
   p:Publi = new Publi();
   constructor(private navParams:NavParams,private modalController: ModalController) { }
@@ -40,11 +50,39 @@ export class PublicacionPage implements OnInit {
 
   initMap(){
 
-
     if(this.source!=null){
       return;
     };
+
+    var iconFeature = new Feature({
+      geometry: new Point(fromLonLat([-0.5133,38.38504])),
+      name: 'Null Island',
+      population: 4000,
+      rainfall: 500
+    });
+
+
+     
+    var stroke = new Stroke({
+      color: [180, 0, 0, 1],
+      width: 1
+    });
+    var style = new Style({
+      image: new Circle({
+        stroke: stroke,
+        radius: 8
+      }),
+      stroke: stroke
+    });
+
+    var vectorSource = new VectorSource({
+      features: [iconFeature]
+    });
+    var vectorLayer = new VectorLayer({
+      source: vectorSource
+    });
     
+    vectorLayer.setStyle(style);
     this.source = new OlXYZ({
       url: 'http://tile.osm.org/{z}/{x}/{y}.png'
     });
@@ -61,7 +99,7 @@ export class PublicacionPage implements OnInit {
     });
 
     this.map = new OlMap({
-      layers: [this.layer],
+      layers: [this.layer,vectorLayer],
       controls: defaultControls().extend([
         new FullScreen(),
         new OverviewMap()
@@ -69,6 +107,22 @@ export class PublicacionPage implements OnInit {
       target: 'map',
       view: this.view
     });
+  }
+
+  verComentarios = true;
+  verAsistentes = false;
+  verCompartir = false;
+
+  segmentChanged(ev: any){
+    this.verComentarios=false;
+    this.verAsistentes=false;
+    this.verCompartir=false;
+    switch(ev.detail.value){
+      case "verComentarios": this.verComentarios=true;return;
+      case "verAsistentes": this.verAsistentes=true;return;
+      case "verCompartir": this.verCompartir=true;return;
+      default:return;
+    }
   }
 
 }
