@@ -9,8 +9,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>  
-  <ion-list>
+<ion-content>
+  <ion-list>    
     <app-muro-publicacion *ngFor="let item of items" [titulo]='item.title' [subtitulo]="item.subtitle" [numLikes]="item.numLikes" [numComents]="item.numComents"></app-muro-publicacion>
   </ion-list>  
 </ion-content>

@@ -16,7 +16,7 @@ export class MuroPublicacionComponent implements OnInit {
   constructor(private modalController:ModalController) {}
   ngOnInit() {}
   async openModal(){
-    const modal = await this.modalController.create({
+    var modal = await this.modalController.create({
       component: PublicacionPage,
       componentProps:{
         titulo: this.titulo,
@@ -25,6 +25,6 @@ export class MuroPublicacionComponent implements OnInit {
         numComents:this.numComents
       }
     });
-    modal.present();
+    return await modal.present();
   }
 }
