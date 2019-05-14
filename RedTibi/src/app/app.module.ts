@@ -14,6 +14,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { PublicacionPageModule } from './publicacion/publicacion.module';
+import { PopMensajePageModule } from './pop-mensaje/pop-mensaje.module';
 
 import { SingletonService } from './singleton.service';
 
@@ -25,6 +26,7 @@ import { SingletonService } from './singleton.service';
     IonicModule.forRoot(),
     AppRoutingModule,
     PublicacionPageModule,
+    PopMensajePageModule,
     // configure the imports
     HttpClientModule,
     TranslateModule.forRoot({

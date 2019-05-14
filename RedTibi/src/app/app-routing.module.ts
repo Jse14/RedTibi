@@ -16,7 +16,9 @@ const routes: Routes = [
   { path: 'eventos', loadChildren: './eventos/eventos.module#EventosPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'registro', loadChildren: './registro/registro.module#RegistroPageModule' },
-  { path: 'crear-evento', loadChildren: './crear-evento/crear-evento.module#CrearEventoPageModule' }
+  { path: 'crear-evento', loadChildren: './crear-evento/crear-evento.module#CrearEventoPageModule' },  { path: 'mensaje', loadChildren: './mensaje/mensaje.module#MensajePageModule' },
+  { path: 'pop-mensaje', loadChildren: './pop-mensaje/pop-mensaje.module#PopMensajePageModule' }
+
 
 
 

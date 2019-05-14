@@ -37,7 +37,7 @@ export class AppComponent {
       icon: 'images'
     },{
       title: 'Mensajes',
-      url: '/list',
+      url: '/mensaje',
       icon: 'chatbubbles'
     },{
       title: 'Anuncios',
