@@ -15,7 +15,7 @@ import {defaults as defaultControls, FullScreen, OverviewMap} from 'ol/control.j
   styleUrls: ['./publicacion.page.scss'],
 })
 export class PublicacionPage implements OnInit {
-  showMap=false;
+  showMap=true;
   map: OlMap;
   source: OlXYZ = null;
   layer: OlTileLayer;
@@ -29,12 +29,18 @@ export class PublicacionPage implements OnInit {
     this.p.subtitle = this.navParams.get('subtitulo');
     this.p.numLikes = this.navParams.get('numLikes');
     this.p.numComents = this.navParams.get('numComents');
+    
+    setTimeout(() => {
+      this.initMap()
+    }, 500);
   }
   closeModal(){
     this.modalController.dismiss();
   }
 
   initMap(){
+
+
     if(this.source!=null){
       return;
     };
