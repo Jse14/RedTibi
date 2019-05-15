@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { AjustesPage } from './ajustes.page';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +23,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
+    IonicStorageModule.forRoot(),
     RouterModule.forChild(routes)
   ],
   declarations: [AjustesPage]

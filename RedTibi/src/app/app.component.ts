@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import { SingletonService } from './singleton.service';
 
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
@@ -60,7 +62,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private translate: TranslateService,
-    public global: SingletonService
+    public global: SingletonService,
+    private storage: Storage
   ) {
     this.initializeApp();
     this.global.loginState = false;
@@ -72,7 +75,15 @@ export class AppComponent {
       this.splashScreen.hide();
       this.translate.addLangs(['es','en']);
       this.translate.setDefaultLang('en');
-      this.translate.use('es');
+
+      this.storage.get('lang').then((val) => {
+        if(val==null) this.translate.use('es');
+        else this.translate.use(val);
+      });
+
+      this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        this.storage.set('lang', event.lang);
+      });
     });
   }
 }

@@ -49,54 +49,17 @@ export class PublicacionPage implements OnInit {
   }
 
   initMap(){
+    if(this.source!=null)return;
 
-    if(this.source!=null){
-      return;
-    };
-
-    var iconFeature = new Feature({
-      geometry: new Point(fromLonLat([-0.5133,38.38504])),
-      name: 'Null Island',
-      population: 4000,
-      rainfall: 500
-    });
-
-
-     
-    var stroke = new Stroke({
-      color: [180, 0, 0, 1],
-      width: 1
-    });
-    var style = new Style({
-      image: new Circle({
-        stroke: stroke,
-        radius: 8
-      }),
-      stroke: stroke
-    });
-
-    var vectorSource = new VectorSource({
-      features: [iconFeature]
-    });
-    var vectorLayer = new VectorLayer({
-      source: vectorSource
-    });
-    
+    var iconFeature = new Feature({geometry: new Point(fromLonLat([-0.5133,38.38504]))});
+    var stroke = new Stroke({color: [180, 0, 0, 1],width: 10});
+    var style = new Style({image: new Circle({stroke: stroke,radius: 8}),stroke: stroke});
+    var vectorSource = new VectorSource({features: [iconFeature]});
+    var vectorLayer = new VectorLayer({source: vectorSource});    
     vectorLayer.setStyle(style);
-    this.source = new OlXYZ({
-      url: 'http://tile.osm.org/{z}/{x}/{y}.png'
-    });
-
-    this.layer = new OlTileLayer({
-      source: this.source
-    });
-
-    this.view = new OlView({
-      center: fromLonLat([-0.5133,38.38504]),
-      zoom:16 ,
-      minZoom: 2,
-      maxZoom: 20
-    });
+    this.source = new OlXYZ({url: 'http://tile.osm.org/{z}/{x}/{y}.png'});
+    this.layer = new OlTileLayer({source: this.source});
+    this.view = new OlView({center: fromLonLat([-0.5133,38.38504]),zoom:16 ,minZoom: 2,maxZoom: 20});
 
     this.map = new OlMap({
       layers: [this.layer,vectorLayer],

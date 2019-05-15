@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core'
 
 import { ThemeService } from '../theme.service';
+import { Storage } from '@ionic/storage';
 
 const themes = {
   autumn: {
@@ -38,23 +39,17 @@ const themes = {
 export class AjustesPage implements OnInit {
 
   idioms: any[] = [
-    {
-      value: 'es',
-      label: 'Español'
-    },
-    {
-      value: 'en',
-      label: 'Inglés'
-    }
+    { value: 'es',label: 'Español'},
+    { value: 'en',label: 'Inglés'}
   ];
-  constructor(private translateService: TranslateService,private theme: ThemeService) {
+  constructor(private translateService: TranslateService,private theme: ThemeService,private storage: Storage) {
   }
 
   ngOnInit() {
   }
 
   choose(lang) {
-    this.translateService.use(lang.detail.value);
+    this.translateService.use(lang.detail.value);    
   }
   changeTheme(name) {
     this.theme.setTheme(themes[name]);
