@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Publi } from '../publi';
+import { Publi } from '../AA_Muro/publi';
 
 @Component({
   selector: 'app-mensaje',

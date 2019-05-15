@@ -8,7 +8,6 @@ import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import { SingletonService } from './singleton.service';
 
 import { Storage } from '@ionic/storage';
-import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
@@ -17,45 +16,14 @@ import { ThemeService } from './theme.service';
 export class AppComponent {
 
   public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'Muro',
-      url: '/list',
-      icon: 'list'
-    },{
-      title: 'Perfil',
-      url: '/perfil',
-      icon: 'contact'
-    },{
-      title: 'Contactos',
-      url: '/contactos',
-      icon: 'people'
-    },{
-      title: 'Eventos',
-      url: '/eventos',
-      icon: 'images'
-    },{
-      title: 'Mensajes',
-      url: '/mensaje',
-      icon: 'chatbubbles'
-    },{
-      title: 'Anuncios',
-      url: '/anuncio',
-      icon: 'cash'
-    },{
-      title: 'Ajustes',
-      url: '/ajustes',
-      icon: 'settings'
-    },{
-      title: 'Salir',
-      url: '/login',
-      icon: 'log-out'
-    }
-
+    {title: 'Muro', url: '/list', icon: 'list'},
+    {title: 'Perfil', url: '/perfil', icon: 'contact'},
+    {title: 'Contactos', url: '/contactos', icon: 'people'},
+    {title: 'Eventos', url: '/eventos', icon: 'images'},
+    {title: 'Mensajes', url: '/mensaje', icon: 'chatbubbles'},
+    {title: 'Anuncios', url: '/anuncio', icon: 'cash'},
+    {title: 'Ajustes', url: '/ajustes', icon: 'settings'},
+    {title: 'Salir', url: '/login', icon: 'log-out'}
   ];
  
   constructor(
@@ -64,8 +32,7 @@ export class AppComponent {
     private statusBar: StatusBar,
     private translate: TranslateService,
     public global: SingletonService,
-    private storage: Storage,
-    private theme: ThemeService
+    private storage: Storage
   ) {
     this.initializeApp();
     this.global.loginState = false;

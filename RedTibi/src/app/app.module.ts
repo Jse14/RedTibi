@@ -15,7 +15,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { PublicacionPageModule } from './publicacion/publicacion.module';
+import { PublicacionPageModule } from './AA_Muro/publicacion/publicacion.module';
 import { PopMensajePageModule } from './pop-mensaje/pop-mensaje.module';
 
 import { SingletonService } from './singleton.service';
