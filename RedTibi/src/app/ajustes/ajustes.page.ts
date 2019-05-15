@@ -53,5 +53,6 @@ export class AjustesPage implements OnInit {
   }
   changeTheme(name) {
     this.theme.setTheme(themes[name]);
+    this.storage.set('theme', themes[name]);
   }
 }

@@ -30,5 +30,14 @@
     "demo": {
         "title": "Translation demo",
         "text": "This is a simple demonstration app for ngx-translate"
+    },
+    "Muro":{
+        "Modal":{
+            "Me apunto!":"Assist!",
+            "Comentarios":"Comments",
+            "Asistentes":"Assistance",
+            "Compartir":"Share",
+            "Invitar":"Invite"
+        }
     }
 }

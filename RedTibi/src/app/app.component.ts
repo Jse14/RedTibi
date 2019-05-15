@@ -8,6 +8,7 @@ import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import { SingletonService } from './singleton.service';
 
 import { Storage } from '@ionic/storage';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
@@ -63,7 +64,8 @@ export class AppComponent {
     private statusBar: StatusBar,
     private translate: TranslateService,
     public global: SingletonService,
-    private storage: Storage
+    private storage: Storage,
+    private theme: ThemeService
   ) {
     this.initializeApp();
     this.global.loginState = false;
@@ -79,6 +81,10 @@ export class AppComponent {
       this.storage.get('lang').then((val) => {
         if(val==null) this.translate.use('es');
         else this.translate.use(val);
+      });
+      this.storage.get('theme').then((val) => {
+        if(val==null) this.theme.setTheme(null);
+        else this.theme.setTheme(val);
       });
 
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
