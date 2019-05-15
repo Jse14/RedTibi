@@ -1,25 +1,26 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import * as Color from 'color';
-//import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
   constructor(
+    private storage: Storage,
     @Inject(DOCUMENT) private document: Document
   ) {
-    /*storage.get('theme').then(cssText => {
+    this.storage.get('theme').then(cssText => {
       this.setGlobalCSS(cssText);
-    });*/
+    });
   }
 
   // Override all global variables with a new theme
   setTheme(theme) {
     const cssText = CSSTextGenerator(theme);
     this.setGlobalCSS(cssText);
-    //this.storage.set('theme', cssText);
+    this.storage.set('theme', cssText);
   }
 
 

@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { AjustesPage } from './ajustes.page';
 import { TranslateModule } from '@ngx-translate/core';
 
+
 const routes: Routes = [
   {
     path: '',

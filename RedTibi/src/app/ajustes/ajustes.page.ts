@@ -38,14 +38,8 @@ const themes = {
 export class AjustesPage implements OnInit {
 
   idioms: any[] = [
-    {
-      value: 'es',
-      label: 'Español'
-    },
-    {
-      value: 'en',
-      label: 'Inglés'
-    }
+    { value: 'es',label: 'Español'},
+    { value: 'en',label: 'Inglés'}
   ];
   constructor(private translateService: TranslateService,private theme: ThemeService) {
   }
@@ -54,7 +48,7 @@ export class AjustesPage implements OnInit {
   }
 
   choose(lang) {
-    this.translateService.use(lang.detail.value);
+    this.translateService.use(lang.detail.value);    
   }
   changeTheme(name) {
     this.theme.setTheme(themes[name]);
