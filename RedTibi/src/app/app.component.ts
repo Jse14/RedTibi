@@ -82,10 +82,6 @@ export class AppComponent {
         if(val==null) this.translate.use('es');
         else this.translate.use(val);
       });
-      this.storage.get('theme').then((val) => {
-        if(val==null) this.theme.setTheme(null);
-        else this.theme.setTheme(val);
-      });
 
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
         this.storage.set('lang', event.lang);
