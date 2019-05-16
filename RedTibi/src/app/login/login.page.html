@@ -4,7 +4,7 @@
         <ion-icon name="mail" item-start></ion-icon>
         Introducir email
       </ion-label>
-      <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+      <ion-input [(ngModel)]="username" color="secondary" type="email" formControlName="email"></ion-input>
     </ion-item>
     <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
       <ion-text color="warning">

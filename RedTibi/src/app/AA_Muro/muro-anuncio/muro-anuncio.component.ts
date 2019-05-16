@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-muro-anuncio',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MuroAnuncioComponent implements OnInit {
 
+  @Input() anuncio:String
   numero = 1;
   constructor() {
     this.numero = Math.floor(Math.random()*2)+1;

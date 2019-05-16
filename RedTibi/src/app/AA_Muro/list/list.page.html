@@ -13,9 +13,10 @@
   <ion-list>
     <div *ngFor="let item of items; index as i">
         <app-muro-publicacion  [publicacion]="item"></app-muro-publicacion>
-        <div *ngIf="i%3 == 2">
-          <app-muro-anuncio></app-muro-anuncio>
-        </div>
-    </div>    
+    </div>
+    
+    <div *ngFor="let anun of anuncio">
+        <app-muro-anuncio [anuncio]="anun"></app-muro-anuncio>
+  </div> 
   </ion-list>  
 </ion-content>

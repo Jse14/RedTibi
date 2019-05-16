@@ -19,6 +19,7 @@ import { PublicacionPageModule } from './AA_Muro/publicacion/publicacion.module'
 import { PopMensajePageModule } from './pop-mensaje/pop-mensaje.module';
 import { LoginPageModule } from './login/login.module';
 import { RegistroPageModule } from './registro/registro.module';
+import { ListPage } from './AA_Muro/list/list.page';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { RegistroPageModule } from './registro/registro.module';
   providers: [
     StatusBar,
     SplashScreen,
+    ListPage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

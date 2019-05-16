@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
 export class LoginPage implements OnInit {
   @Output() conectado = new EventEmitter();
   @Output() toRegistro = new EventEmitter();
+  username = "";
   
   onLoginForm = this.fb.group({
     email:['',Validators.compose([Validators.email,Validators.required])],
@@ -24,6 +25,7 @@ export class LoginPage implements OnInit {
 
   goToHome(){
     this.storage.set('token','1234');
+    this.storage.set('user',this.username)
     this.conectado.emit(true);
   }
 

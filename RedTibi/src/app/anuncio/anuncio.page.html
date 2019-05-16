@@ -11,9 +11,8 @@
     <form [formGroup]="onAnuncioForm" class="list-form">
 
         <ion-item>
-            <ion-icon name="calendar" item-start></ion-icon>
-            <ion-label>&nbsp;{{ 'Anuncios.Seleccionar fecha' | translate }}</ion-label>
-            <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+            <!--ion-icon name="pencil" item-start></ion-icon-->
+            <ion-textarea formControlName="descri" [(ngModel)]="descripcion" name="descripcion" class="input_message" placeholder="Añade aquí una descripción..."></ion-textarea>
         </ion-item>
 
         <ion-item>
@@ -37,11 +36,10 @@
       </form>
 
       <div>
-          <ion-button icon-left size="medium" expand="full" shape="round" color="dark" tappable>
+          <ion-button icon-left size="medium" expand="full" shape="round" color="success" (click)="anyadirAnuncio()" tappable>
             <ion-icon name="cloud-upload"></ion-icon>
             &nbsp;{{ 'Anuncios.Crear' | translate }}
           </ion-button>
-      
-        </div>
+      </div>
 
 </ion-content>
