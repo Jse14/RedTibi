@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-segment  (ionChange)="segmentChanged($event)">
+  <ion-segment  (ionChange)="segmentChanged($event)" value="Asistir">
       <ion-segment-button value="Asistir" style="font-size:11px;">
         Proximos eventos
       </ion-segment-button>
@@ -103,7 +103,7 @@
         </ion-card>
       </ion-list>
       <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button href='/crear-evento'>
+        <ion-fab-button routerLink='/crear-evento'>
           <ion-icon name="add"></ion-icon>
         </ion-fab-button>
       </ion-fab>
