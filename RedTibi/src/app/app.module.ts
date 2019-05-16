@@ -15,10 +15,11 @@ import { IonicStorageModule } from '@ionic/storage';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { PublicacionPageModule } from './publicacion/publicacion.module';
+import { PublicacionPageModule } from './AA_Muro/publicacion/publicacion.module';
 import { PopMensajePageModule } from './pop-mensaje/pop-mensaje.module';
+import { LoginPageModule } from './login/login.module';
+import { RegistroPageModule } from './registro/registro.module';
 
-import { SingletonService } from './singleton.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,8 @@ import { SingletonService } from './singleton.service';
     AppRoutingModule,
     PublicacionPageModule,
     PopMensajePageModule,
+    LoginPageModule,
+    RegistroPageModule,
     // configure the imports
     HttpClientModule,
     TranslateModule.forRoot({
@@ -43,7 +46,6 @@ import { SingletonService } from './singleton.service';
   providers: [
     StatusBar,
     SplashScreen,
-    SingletonService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

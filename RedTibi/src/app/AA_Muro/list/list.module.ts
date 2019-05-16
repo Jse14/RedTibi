@@ -7,6 +7,7 @@ import {TranslateModule} from '@ngx-translate/core'
 
 import { ListPage } from './list.page';
 import { MuroPublicacionComponent} from '../muro-publicacion/muro-publicacion.component'
+import { MuroAnuncioComponent } from '../muro-anuncio/muro-anuncio.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { MuroPublicacionComponent} from '../muro-publicacion/muro-publicacion.co
       }
     ])
   ],
-  declarations: [ListPage,MuroPublicacionComponent]
+  declarations: [ListPage,MuroPublicacionComponent,MuroAnuncioComponent]
 })
 export class ListPageModule {}

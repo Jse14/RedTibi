@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SingletonService } from '../singleton.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-login',
@@ -9,23 +9,26 @@ import { SingletonService } from '../singleton.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+  @Output() conectado = new EventEmitter();
+  @Output() toRegistro = new EventEmitter();
+  
   onLoginForm = this.fb.group({
     email:['',Validators.compose([Validators.email,Validators.required])],
     password:['',Validators.required]
   });
 
-  constructor(private fb:FormBuilder,private router:Router,public global: SingletonService) { }
+  constructor(private fb:FormBuilder,private router:Router,private storage:Storage) { }
 
   ngOnInit() {
   }
 
   goToHome(){
-    this.global.loginState = true;
-    this.router.navigateByUrl('list');
+    this.storage.set('token','1234');
+    this.conectado.emit(true);
   }
 
   register(){
+    this.toRegistro.emit();
     this.router.navigateByUrl('registro');
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
+  @Output() toLogin = new EventEmitter();
 
   onRegisterForm = this.fb.group({
     email:['',Validators.compose([Validators.email,Validators.required])],
@@ -22,7 +23,7 @@ export class RegistroPage implements OnInit {
   }
 
   goLogin() {
-    this.router.navigateByUrl('login');
+    this.toLogin.emit();
   }
 
   get email() {

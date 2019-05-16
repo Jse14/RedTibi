@@ -5,10 +5,10 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
-import { SingletonService } from './singleton.service';
 
 import { Storage } from '@ionic/storage';
 import { ThemeService } from './theme.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,45 +17,14 @@ import { ThemeService } from './theme.service';
 export class AppComponent {
 
   public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'Muro',
-      url: '/list',
-      icon: 'list'
-    },{
-      title: 'Perfil',
-      url: '/perfil',
-      icon: 'contact'
-    },{
-      title: 'Contactos',
-      url: '/contactos',
-      icon: 'people'
-    },{
-      title: 'Eventos',
-      url: '/eventos',
-      icon: 'images'
-    },{
-      title: 'Mensajes',
-      url: '/mensaje',
-      icon: 'chatbubbles'
-    },{
-      title: 'Anuncios',
-      url: '/anuncio',
-      icon: 'cash'
-    },{
-      title: 'Ajustes',
-      url: '/ajustes',
-      icon: 'settings'
-    },{
-      title: 'Salir',
-      url: '/login',
-      icon: 'log-out'
-    }
-
+    {title: 'Muro', url: '/list', icon: 'list'},
+    {title: 'Perfil', url: '/perfil', icon: 'contact'},
+    {title: 'Contactos', url: '/contactos', icon: 'people'},
+    {title: 'Eventos', url: '/eventos', icon: 'images'},
+    {title: 'Mensajes', url: '/mensaje', icon: 'chatbubbles'},
+    {title: 'Anuncios', url: '/anuncio', icon: 'cash'},
+    {title: 'Ajustes', url: '/ajustes', icon: 'settings'},
+    {title: 'Salir', url: '/', icon: 'log-out'}
   ];
  
   constructor(
@@ -63,13 +32,25 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private translate: TranslateService,
-    public global: SingletonService,
     private storage: Storage,
-    private theme: ThemeService
+    private themeService:ThemeService,
   ) {
     this.initializeApp();
-    this.global.loginState = false;
   }
+  logout(){
+    this.conectado = false;
+    this.storage.remove('token');
+    
+  }
+  conectar(event):void{
+    this.conectado=event;
+  }
+
+  login = true;
+  registro = false;
+  toLogin(){this.login = true;this.registro=false;}
+  toRegistro(){this.login=false;this.registro=true;}
+  conectado:boolean = false;
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -81,6 +62,13 @@ export class AppComponent {
       this.storage.get('lang').then((val) => {
         if(val==null) this.translate.use('es');
         else this.translate.use(val);
+      });
+      this.storage.get('theme').then(cssText => {
+        this.themeService.setGlobalCSS(cssText);
+      });
+      this.storage.get('token').then(token => {
+        if(token==null) this.conectado=false;
+        else this.conectado=true;
       });
 
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {

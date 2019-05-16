@@ -9,8 +9,9 @@ import { Publi } from '../publi';
 export class ListPage implements OnInit {
   private selectedItem: any;
 
-  //public items: Array<{ title: string; subtitle: string; numLikes:any;numComents:any}> = [];
+  eventos = ['Partido de fútbol', 'Beerpong', 'Fiesta universitaria','Picnic en la UA', 'Torneo de paddle','Cervezas en mi casa', 'Partido de baloncesto'];
   public items: Array<Publi>=[];
+  public anuncio: Array<String>=['anuncio1','anuncio2'];
   constructor() {
     for (let i = 1; i < 11; i++) {
       var nuevaPubli = new Publi();
@@ -18,6 +19,7 @@ export class ListPage implements OnInit {
       nuevaPubli.subtitle= '@User' + i;
       nuevaPubli.numLikes=Math.floor(Math.random()*100);
       nuevaPubli.numComents=Math.floor(Math.random()*100);
+      nuevaPubli.image="assets/events/"+this.eventos[Math.floor(Math.random()*this.eventos.length)]+".jpg";
       this.items.push(nuevaPubli);
     }
   }

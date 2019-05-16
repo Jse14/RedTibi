@@ -10,8 +10,8 @@ import OlView from 'ol/View';
 import {fromLonLat} from 'ol/proj.js';
 import Feature from 'ol/Feature.js';
 import Point from 'ol/geom/Point.js';
-import {Icon, Style,Stroke,Circle} from 'ol/style.js';
-import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
+import {Style,Stroke,Circle} from 'ol/style.js';
+import {Vector as VectorLayer} from 'ol/layer.js';
 import VectorSource from 'ol/source/Vector.js';
 import {defaults as defaultControls, FullScreen, OverviewMap} from 'ol/control.js';
 
@@ -21,24 +21,18 @@ import {defaults as defaultControls, FullScreen, OverviewMap} from 'ol/control.j
   styleUrls: ['./publicacion.page.scss'],
 })
 export class PublicacionPage implements OnInit {
-  showMap=true;
-  map: OlMap;
   source: OlXYZ = null;
-  layer: OlTileLayer;
-  view: OlView;
+
   slideOpts = {
     initialSlide: 0,
     speed: 400
   };
-  titulo=null;
+
   p:Publi = new Publi();
   constructor(private navParams:NavParams,private modalController: ModalController) { }
 
   ngOnInit() {
-    this.p.title = this.navParams.get('titulo');
-    this.p.subtitle = this.navParams.get('subtitulo');
-    this.p.numLikes = this.navParams.get('numLikes');
-    this.p.numComents = this.navParams.get('numComents');
+    this.p = this.navParams.get('publicacion');
     
     setTimeout(() => {
       this.initMap()
@@ -58,17 +52,17 @@ export class PublicacionPage implements OnInit {
     var vectorLayer = new VectorLayer({source: vectorSource});    
     vectorLayer.setStyle(style);
     this.source = new OlXYZ({url: 'http://tile.osm.org/{z}/{x}/{y}.png'});
-    this.layer = new OlTileLayer({source: this.source});
-    this.view = new OlView({center: fromLonLat([-0.5133,38.38504]),zoom:16 ,minZoom: 2,maxZoom: 20});
+    var layer = new OlTileLayer({source: this.source});
+    var view = new OlView({center: fromLonLat([-0.5133,38.38504]),zoom:16 ,minZoom: 2,maxZoom: 20});
 
-    this.map = new OlMap({
-      layers: [this.layer,vectorLayer],
+    var map = new OlMap({
+      layers: [layer,vectorLayer],
       controls: defaultControls().extend([
         new FullScreen(),
         new OverviewMap()
       ]),
       target: 'map',
-      view: this.view
+      view: view
     });
   }
 
