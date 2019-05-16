@@ -5,13 +5,13 @@
     </ion-avatar>
     <ion-card-header color="secondary">
         <ion-card-title>{{publicacion.title}}</ion-card-title>
-        <ion-card-subtitle>{{publicacion.subtitle}}</ion-card-subtitle>
+        <ion-card-subtitle>{{publicacion.image}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-icon slot="end" ios="ios-more" md="md-more" style="float:right;"></ion-icon>
+    <ion-note slot="end"><b>{{publicacion.fecha}}</b></ion-note>
   </ion-item>
     
   <ion-card-content>
-    <img  (click)="openModal()" src="{{publicacion.image}}" style="margin:auto;width:100%;height: 150px;" />
+    <img  (click)="openModal()" src="assets/events/{{publicacion.image}}.jpg" style="margin:auto;width:100%;height: 150px;" />
       <ion-row>
         <div style="margin: auto;">
           <ion-button size="medium" fill="outline">

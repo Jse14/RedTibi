@@ -26,7 +26,8 @@ export class ListPage implements OnInit {
       nuevaPubli.subtitle= '@User' + i;
       nuevaPubli.numLikes=Math.floor(Math.random()*100);
       nuevaPubli.numComents=Math.floor(Math.random()*100);
-      nuevaPubli.image="assets/events/"+this.eventos[Math.floor(Math.random()*this.eventos.length)]+".jpg";
+      nuevaPubli.image=this.eventos[Math.floor(Math.random()*this.eventos.length)];
+      nuevaPubli.fecha = "2"+i+"/5/2019"
       this.items.push(nuevaPubli);
     }
   }

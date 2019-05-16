@@ -5,4 +5,5 @@ export class Publi {
     image:string;
     numLikes:number;
     numComents:number;
+    fecha:string;
 }
