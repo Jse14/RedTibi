@@ -5,23 +5,23 @@
           <ion-icon slot="start" name="arrow-back"></ion-icon>
         </ion-button>
       </ion-buttons>
-    <ion-title>{{p.title}}</ion-title>
+    <ion-title>{{p.image}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
     <ion-avatar slot="start"><img src="assets/users/user1.PNG"></ion-avatar>
-    <ion-label>{{p.subtitle}}</ion-label>
+    <ion-label>{{p.title}}</ion-label>
   </ion-item>
   
   <ion-grid>
     <ion-row align-items-center>
       <ion-col>
           <ion-slides pager="true" [options]="slideOpts">
-              <ion-slide><img src="{{p.image}}" style="margin:auto;width:100%;height: 250px;" /></ion-slide>
-              <ion-slide><img src="{{p.image}}" style="margin:auto;width:100%;height: 250px;" /></ion-slide>
-              <ion-slide><img src="{{p.image}}" style="margin:auto;width:100%;height: 250px;" /></ion-slide>
+              <ion-slide><img src="assets/events/{{p.image}}.jpg" style="margin:auto;width:100%;height: 250px;" /></ion-slide>
+              <ion-slide><img src="assets/events/{{p.image}}.jpg" style="margin:auto;width:100%;height: 250px;" /></ion-slide>
+              <ion-slide><img src="assets/events/{{p.image}}.jpg" style="margin:auto;width:100%;height: 250px;" /></ion-slide>
           </ion-slides>
       </ion-col>
     </ion-row>

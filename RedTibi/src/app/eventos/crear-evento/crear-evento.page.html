@@ -15,8 +15,10 @@
         <ion-item>
             <ion-icon name="image" item-start></ion-icon>
             <ion-label>&nbsp; Imagen</ion-label>
-            <ion-input type="file" accept="image/*"></ion-input>
+            <ion-input type="file" accept="image/*" (change)="getPictures($event)"></ion-input>
+            <img id="blah" *ngIf="imageSrc!==null" [src]="imageSrc"/>
         </ion-item>
+        
         <br>
         <ion-textarea placeholder="Descripción" clearInput></ion-textarea>
         <br>
@@ -50,7 +52,7 @@
   <br>
 
   <div>
-    <ion-button expand="block" fill="outline">
+    <ion-button expand="block" fill="outline" (click)="do()">
       <ion-icon name="cloud-upload"></ion-icon>
       &nbsp;Crear Evento
     </ion-button>

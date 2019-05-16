@@ -23,5 +23,20 @@ export class CrearEventoPage implements OnInit {
 
   ngOnInit() {
   }
+  imageSrc: string = null;
+  getPictures(event:any){
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = e => this.imageSrc = reader.result+"";
+      reader.readAsDataURL(file);
+    }
+  }
+
+  do(){
+    console.log(this.onEventForm.get('titulo'))
+  }
+
+  
 
 }

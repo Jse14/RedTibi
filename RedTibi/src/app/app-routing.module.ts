@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'ajustes', loadChildren: './ajustes/ajustes.module#AjustesPageModule' },
   { path: 'anuncio', loadChildren: './anuncio/anuncio.module#AnuncioPageModule' },
   { path: 'eventos', loadChildren: './eventos/eventos.module#EventosPageModule' },
-  { path: 'crear-evento', loadChildren: './crear-evento/crear-evento.module#CrearEventoPageModule' },
+  { path: 'crear-evento', loadChildren: './eventos/crear-evento/crear-evento.module#CrearEventoPageModule' },
   { path: 'mensaje', loadChildren: './mensaje/mensaje.module#MensajePageModule' },
   { path: 'pop-mensaje', loadChildren: './pop-mensaje/pop-mensaje.module#PopMensajePageModule' }
 ];
