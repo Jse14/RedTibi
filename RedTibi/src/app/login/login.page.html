@@ -1,11 +1,3 @@
-
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
   <form [formGroup]="onLoginForm" class="list-form">
     <ion-item no-padding class="animated fadeInUp">
       <ion-label position="floating">
@@ -35,7 +27,7 @@
       <p text-right>Forgot Password?</p>
   </form>
   <div>
-    <ion-button icon-left size="medium" expand="full" shape="round" color="success" (click)="goToHome()" [disabled]="!onLoginForm.valid" tappable>
+    <ion-button icon-left size="medium" expand="full" shape="round" color="success" routerLink="/list" (click)="goToHome()" [disabled]="!onLoginForm.valid" tappable>
       <ion-icon name="log-in"></ion-icon>
       &nbsp;Login
     </ion-button>
@@ -47,4 +39,3 @@
         &nbsp;Registro
       </ion-button>
   </div>
-</ion-content>

@@ -23,6 +23,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule
   ],
+  exports: [RegistroPage],
   declarations: [RegistroPage]
 })
 export class RegistroPageModule {}

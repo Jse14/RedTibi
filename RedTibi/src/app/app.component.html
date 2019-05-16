@@ -1,6 +1,6 @@
 <ion-app>
-  <ion-split-pane>
-    <ion-menu *ngIf="global.loginState">
+  <ion-split-pane *ngIf="conectado">
+    <ion-menu >
       <ion-header>
         <ion-toolbar color="primary">
           <ion-title>Menu</ion-title>         
@@ -8,8 +8,8 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages;last as last">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" (click)="!last || logout()">
               <ion-icon slot="start" [name]="p.icon" color="primary"></ion-icon>
               <ion-label>
                 {{ 'Menu.'+p.title | translate }}
@@ -19,6 +19,11 @@
         </ion-list>
       </ion-content>
     </ion-menu>
+
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>
+
+  <app-login  *ngIf="login && !conectado" (conectado)="conectar($event)" (toRegistro)="toRegistro()"></app-login>
+  <app-registro *ngIf="registro && !conectado" (conectado)="conectar($event)" (toLogin)="toLogin()"></app-registro>
+  
 </ion-app>

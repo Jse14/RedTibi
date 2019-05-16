@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { PublicacionPage } from '../publicacion/publicacion.page';
+import { Publi } from '../publi';
 
 @Component({
   selector: 'app-muro-publicacion',
@@ -8,10 +9,7 @@ import { PublicacionPage } from '../publicacion/publicacion.page';
   styleUrls: ['./muro-publicacion.component.scss'],
 })
 export class MuroPublicacionComponent implements OnInit {
-  @Input() titulo:string;
-  @Input() subtitulo:string;
-  @Input() numLikes:number;
-  @Input() numComents:number;
+  @Input() publicacion:Publi
 
   constructor(private modalController:ModalController) {}
   ngOnInit() {}
@@ -19,10 +17,7 @@ export class MuroPublicacionComponent implements OnInit {
     var modal = await this.modalController.create({
       component: PublicacionPage,
       componentProps:{
-        titulo: this.titulo,
-        subtitulo:this.subtitulo,
-        numLikes:this.numLikes,
-        numComents:this.numComents
+        publicacion : this.publicacion
       }
     });
     return await modal.present();

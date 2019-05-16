@@ -10,7 +10,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>    
-    <app-muro-publicacion *ngFor="let item of items" [titulo]='item.title' [subtitulo]="item.subtitle" [numLikes]="item.numLikes" [numComents]="item.numComents"></app-muro-publicacion>
+  <ion-list>
+    <div *ngFor="let item of items; index as i">
+        <app-muro-publicacion  [publicacion]="item"></app-muro-publicacion>
+        <div *ngIf="i%3 == 2">
+          <app-muro-anuncio></app-muro-anuncio>
+        </div>
+    </div>    
   </ion-list>  
 </ion-content>

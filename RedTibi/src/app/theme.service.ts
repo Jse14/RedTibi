@@ -11,9 +11,6 @@ export class ThemeService {
     private storage: Storage,
     @Inject(DOCUMENT) private document: Document
   ) {
-    this.storage.get('theme').then(cssText => {
-      this.setGlobalCSS(cssText);
-    });
   }
 
   // Override all global variables with a new theme
@@ -22,9 +19,9 @@ export class ThemeService {
     this.setGlobalCSS(cssText);
     this.storage.set('theme', cssText);
   }
+  
 
-
-  private setGlobalCSS(css: string) {
+  setGlobalCSS(css: string) {
     this.document.documentElement.style.cssText = css;
   }
 }
