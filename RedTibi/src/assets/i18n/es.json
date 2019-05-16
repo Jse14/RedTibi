@@ -33,11 +33,13 @@
     },
     "Muro":{
         "Modal":{
-            "Me apunto!":"Me apunto!",
+            "Me apunto!":"Me apunto!",            
+            "Apuntado!":"Apuntado!",
             "Comentarios":"Comentarios",
             "Asistentes":"Asistentes",
             "Compartir":"Compartir",
-            "Invitar":"Invitar"
+            "Invitar":"Invitar",
+            "Invitado":"Invitado"
         }
     }
 }

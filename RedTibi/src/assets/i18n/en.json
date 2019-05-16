@@ -33,11 +33,13 @@
     },
     "Muro":{
         "Modal":{
-            "Me apunto!":"Assist!",
+            "Me apunto!":"Enroll!",
+            "Apuntado!":"Enrolled!",
             "Comentarios":"Comments",
             "Asistentes":"Assistance",
             "Compartir":"Share",
-            "Invitar":"Invite"
+            "Invitar":"Invite",
+            "Invitado":"Invited"
         }
     }
 }

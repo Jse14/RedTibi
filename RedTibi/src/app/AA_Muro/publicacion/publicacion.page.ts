@@ -21,8 +21,13 @@ import {defaults as defaultControls, FullScreen, OverviewMap} from 'ol/control.j
   styleUrls: ['./publicacion.page.scss'],
 })
 export class PublicacionPage implements OnInit {
-  source: OlXYZ = null;
 
+  public comments: Array<{user:string,comment:string,hora:string}>=[];
+  public assistants: Array<{user:string,hora:string}>=[];
+  public invitados: Array<{user:string,invitado:boolean}>=[];
+
+  source: OlXYZ = null;
+  apuntado:boolean = false;
   slideOpts = {
     initialSlide: 0,
     speed: 400
@@ -32,6 +37,15 @@ export class PublicacionPage implements OnInit {
   constructor(private navParams:NavParams,private modalController: ModalController) { }
 
   ngOnInit() {
+    for (let i = 2; i < 5; i++) {
+      this.comments.push({user:"user"+i,comment:"Soy un comentario random",hora:"20h"});
+    }
+    for (let i = 6; i < 9; i++) {
+      this.assistants.push({user:"user"+i,hora:"20h"});
+    }
+    for (let i = 9; i < 12; i++) {
+      this.invitados.push({user:"user"+i,invitado:false});
+    }
     this.p = this.navParams.get('publicacion');
     
     setTimeout(() => {
@@ -40,6 +54,27 @@ export class PublicacionPage implements OnInit {
   }
   closeModal(){
     this.modalController.dismiss();
+  }
+
+  invitar(event:any){
+    if (event.invitado == true) event.invitado = false;
+    else event.invitado = true;
+  }
+  apuntar(){
+    if(this.apuntado){
+      this.apuntado = false;
+      this.assistants.shift();
+    } 
+    else {
+      this.apuntado = true;
+      this.assistants.unshift({user:"Manolo",hora:"Ahora"});      
+    }
+  }
+  commentToAdd="";
+  sendComment(){
+    if(this.commentToAdd =="") return;
+    this.comments.unshift({user:"Manolo",comment:this.commentToAdd,hora:"Ahora"});
+    this.commentToAdd="";
   }
 
   initMap(){

@@ -45,15 +45,16 @@
     <ion-row align-items-center>
       <div style="margin: auto;">
         <ion-col>
-            <ion-button size="large" fill="outline">
+            <ion-button size="large" fill="outline" (click)="apuntar()">
                 <ion-icon ios="ios-walk" md="md-walk"></ion-icon>
-                <ion-label>{{ 'Muro.Modal.Me apunto!' | translate }}</ion-label>
+                <ion-label *ngIf="!apuntado">{{ 'Muro.Modal.Me apunto!' | translate }}</ion-label>
+                <ion-label *ngIf="apuntado">{{ 'Muro.Modal.Apuntado!' | translate }}</ion-label>
               </ion-button>
         </ion-col>
       </div>
     </ion-row>
 
-    <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment (ionChange)="segmentChanged($event)" value="verComentarios">
         <ion-segment-button value="verComentarios">
           <ion-label>{{ 'Muro.Modal.Comentarios' | translate }}:{{p.numComents}}</ion-label>
         </ion-segment-button>
@@ -66,37 +67,45 @@
     </ion-segment>
 
     <ion-row>
-        <ion-col>
-            <ion-list *ngIf="verComentarios">
-                <ion-item *ngFor="let number of [2,3,4,5]">
-                  <ion-avatar slot="start"><img src="assets/users/user{{number}}.PNG"></ion-avatar>
-                  <ion-grid>
-                    <ion-row>
-                      <ion-col><ion-label>User{{number}}</ion-label></ion-col>
-                      <ion-col><ion-note slot="end">On</ion-note></ion-col>                     
-                                
-                    </ion-row>
-                    <ion-row>
-                      <ion-label text-wrap>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut porro quae iure, voluptas aliquam tempore at nulla aperiam est numquam iste eius earum similique consequuntur repellendus dicta mollitia animi sint!</ion-label>
-                    </ion-row>
-                  </ion-grid>
-                </ion-item>
-              </ion-list>
-              <ion-list *ngIf="verAsistentes">
-                <ion-item *ngFor="let number of [2,5,10,11]">
-                  <ion-avatar slot="start"><img src="assets/users/user{{number}}.PNG"></ion-avatar>
-                  <ion-label>User{{number}}</ion-label>
-                  <ion-note slot="end">2h</ion-note>
-                </ion-item>
-              </ion-list>
-              <ion-list *ngIf="verCompartir">
-                <ion-item *ngFor="let number of [6,7,8,9]">
-                  <ion-avatar slot="start"><img src="assets/users/user{{number}}.PNG"></ion-avatar>
-                  <ion-label>User{{number}}</ion-label>
-                  <ion-button>{{ 'Muro.Modal.Invitar' | translate }}</ion-button>
-                </ion-item>
-              </ion-list>
-        </ion-col>
-      </ion-row>
+      <ion-col>
+        <ion-list *ngIf="verComentarios">
+          
+          <ion-item>
+              <ion-icon name="add-circle"></ion-icon>
+              <ion-input placeholder="Add comment" [(ngModel)]="commentToAdd" (keyup.enter)="sendComment()"></ion-input>
+          </ion-item>
+
+          <ion-item *ngFor="let comment of comments">
+            <ion-avatar slot="start"><img src="assets/users/{{comment.user}}.PNG"></ion-avatar>
+            <ion-note slot="end">{{comment.hora}}</ion-note>
+            <ion-grid>
+              <ion-row>
+                <ion-label><b>{{comment.user}}</b></ion-label>                      
+              </ion-row>
+              <ion-row>
+                <ion-label text-wrap>{{comment.comment}}</ion-label>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+
+        <ion-list *ngIf="verAsistentes">
+          <ion-item *ngFor="let assistant of assistants">
+            <ion-avatar slot="start"><img src="assets/users/{{assistant.user}}.PNG"></ion-avatar>
+            <ion-label><b>{{assistant.user}}</b></ion-label>
+            <ion-note slot="end">{{assistant.hora}}</ion-note>
+          </ion-item>
+        </ion-list>
+
+        <ion-list *ngIf="verCompartir">
+          <ion-item *ngFor="let invitado of invitados">
+            <ion-avatar slot="start"><img src="assets/users/{{invitado.user}}.PNG"></ion-avatar>
+            <ion-label><b>{{invitado.user}}</b></ion-label>                  
+            <ion-button size="small" *ngIf="!invitado.invitado" color="primary" (click)="invitar(invitado)">{{ 'Muro.Modal.Invitar' | translate }}</ion-button>
+            <ion-button size="small" *ngIf="invitado.invitado" color="tertiary" (click)="invitar(invitado)">{{ 'Muro.Modal.Invitado' | translate }}</ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
