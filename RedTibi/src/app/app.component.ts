@@ -68,7 +68,11 @@ export class AppComponent {
       });
       this.storage.get('token').then(token => {
         if(token==null) this.conectado=false;
-        else this.conectado=true;
+        else {
+          this.login=false;
+          this.registro = false;
+          this.conectado=true;
+        }
       });
 
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
