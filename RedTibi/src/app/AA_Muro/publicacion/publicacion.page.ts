@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 import { Publi } from '../publi';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 import OlMap from 'ol/Map';
 import OlXYZ from 'ol/source/XYZ';

@@ -1,7 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { Publi } from '../publi';
 import { Router } from '@angular/router';
-import { increaseElementDepthCount } from '@angular/core/src/render3/state';
 import { Storage } from '@ionic/storage';
 
 @Component({

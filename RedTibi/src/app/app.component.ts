@@ -26,6 +26,9 @@ export class AppComponent {
     {title: 'Ajustes', url: '/ajustes', icon: 'settings'},
     {title: 'Salir', url: '/', icon: 'log-out'}
   ];
+
+  login = true;
+  registro = false;
  
   constructor(
     private platform: Platform,
@@ -45,12 +48,10 @@ export class AppComponent {
   conectar(event):void{
     this.conectado=event;
   }
-
-  login = true;
-  registro = false;
+  
   toLogin(){this.login = true;this.registro=false;}
   toRegistro(){this.login=false;this.registro=true;}
-  conectado:boolean = false;
+  conectado:boolean;
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -68,7 +69,11 @@ export class AppComponent {
       });
       this.storage.get('token').then(token => {
         if(token==null) this.conectado=false;
-        else this.conectado=true;
+        else {
+          this.login=false;
+          this.registro = false;
+          this.conectado=true;
+        }
       });
 
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {

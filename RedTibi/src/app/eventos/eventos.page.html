@@ -3,20 +3,20 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ 'Eventos' }}</ion-title>
+    <ion-title>{{ 'Menu.Eventos'| translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-segment  (ionChange)="segmentChanged($event)" value="Asistir">
       <ion-segment-button value="Asistir" style="font-size:11px;">
-        Proximos eventos
+        {{ 'Eventos.Proximos'| translate }}
       </ion-segment-button>
       <ion-segment-button value="Creados" style="font-size:11px;">
-        Mis Eventos
+        {{ 'Eventos.Creados'| translate }}
       </ion-segment-button>
       <ion-segment-button value="Pendientes" style="font-size:11px;">
-        Pendientes
+        {{ 'Eventos.Invitaciones'| translate }}
       </ion-segment-button>
     </ion-segment>
 
