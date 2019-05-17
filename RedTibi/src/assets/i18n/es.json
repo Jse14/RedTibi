@@ -20,6 +20,11 @@
     "Ajustes":{
         "EligeIdioma":"Escoge un idoma"
     },
+    "Eventos":{
+        "Proximos":"Próximos",
+        "Creados":"Creados",
+        "Invitaciones":"Invitaciones"
+    },
     "Anuncios":{
         "Seleccionar fecha":"Seleccionar fecha",
         "Datos bancarios":"Datos bancarios",

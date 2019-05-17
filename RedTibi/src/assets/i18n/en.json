@@ -20,6 +20,11 @@
     "Ajustes":{
         "EligeIdioma":"Choose your language"
     },
+    "Eventos":{
+        "Proximos":"Coming",
+        "Creados":"Created",
+        "Invitaciones":"Invitations"
+    },
     "Anuncios":{
         "Seleccionar fecha":"Select date",
         "Datos bancarios":"Bank data",
