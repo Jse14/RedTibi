@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -14,7 +14,8 @@ import { Router } from '@angular/router';
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  
 
   public appPages = [
     {title: 'Muro', url: '/list', icon: 'list'},
@@ -29,6 +30,7 @@ export class AppComponent {
 
   login = true;
   registro = false;
+  conectado:boolean=false;
  
   constructor(
     private platform: Platform,
@@ -38,7 +40,7 @@ export class AppComponent {
     private storage: Storage,
     private themeService:ThemeService,
   ) {
-    this.initializeApp();
+    
   }
   logout(){
     this.conectado = false;
@@ -51,7 +53,8 @@ export class AppComponent {
   
   toLogin(){this.login = true;this.registro=false;}
   toRegistro(){this.login=false;this.registro=true;}
-  conectado:boolean;
+
+  
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -80,5 +83,8 @@ export class AppComponent {
         this.storage.set('lang', event.lang);
       });
     });
+  }
+  ngOnInit(): void {
+    this.initializeApp();
   }
 }

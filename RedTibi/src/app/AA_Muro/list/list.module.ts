@@ -8,13 +8,15 @@ import {TranslateModule} from '@ngx-translate/core'
 import { ListPage } from './list.page';
 import { MuroPublicacionComponent} from '../muro-publicacion/muro-publicacion.component'
 import { MuroAnuncioComponent } from '../muro-anuncio/muro-anuncio.component';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TranslateModule.forChild(),
+    TranslateModule.forChild(),    
+    IonicStorageModule.forRoot(),
     RouterModule.forChild([
       {
         path: '',

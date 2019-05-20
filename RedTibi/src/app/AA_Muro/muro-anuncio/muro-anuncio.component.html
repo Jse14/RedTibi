@@ -1,13 +1,13 @@
-<ion-card color="secondary">
+<ion-card *ngIf="myAnuncio!==null" color="secondary">
     <ion-item color="secondary">
       <ion-avatar slot="start">
-        <img src="assets/users/user1.PNG">
+        <img src="assets/users/Manolo.PNG">
       </ion-avatar>
       <ion-icon slot="end" ios="logo-euro" md="logo-euro" style="float:right;"></ion-icon>
     </ion-item>
       
     <ion-card-content >
-        <img src="assets/anuncios/anuncio{{numero}}.jpg" style="margin:auto;width:100%;height: 150px;">
+      <img src="assets/anuncios/{{myAnuncio.image}}.jpg" style="margin:auto;width:100%;height: 150px;">
     </ion-card-content>
 </ion-card>
   
