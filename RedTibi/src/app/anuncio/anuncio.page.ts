@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
-import { ListPage } from '../AA_Muro/list/list.page';
 import { Storage } from '@ionic/storage';
 import { Publi } from '../AA_Muro/publi';
 
@@ -15,8 +14,8 @@ import { Publi } from '../AA_Muro/publi';
 export class AnuncioPage implements OnInit {
   
   onAnuncioForm = this.fb.group({
-    descri:['',Validators.required],
-    imagen:['',Validators.required],
+    descri:['',],
+    imagen:['',],
     fecha:['',Validators.required],
     pago:['',Validators.required]
   });
@@ -24,7 +23,7 @@ export class AnuncioPage implements OnInit {
   public fecha = new Date().toISOString()
   descripcion = ""
 
-  constructor(private fb:FormBuilder,private router:Router,public myService: ListPage,private storage:Storage) { }
+  constructor(private fb:FormBuilder,private router:Router,private storage:Storage) { }
 
   ngOnInit() {
   }
@@ -35,10 +34,16 @@ export class AnuncioPage implements OnInit {
       nuevaPubli.title = variable;
       nuevaPubli.subtitle = this.fecha;
       nuevaPubli.icon = this.descripcion;
-      let rand = Math.floor(Math.random()*20)+1;
-      nuevaPubli.numLikes = rand;
-      this.descripcion = ""
-      this.myService.crearAnuncio(nuevaPubli)
+      nuevaPubli.image = "anuncio"+Math.floor(Math.random()*3+1);
+      nuevaPubli.numLikes = Math.floor(Math.random()*20)+1;
+      this.storage.get('anuncios').then((value) => {
+        if(value===null){
+          value=[];
+        }
+        value.push(nuevaPubli)
+        this.storage.set('anuncios',value);
+        this.router.navigateByUrl('list');
+      })
     })
   }
 }

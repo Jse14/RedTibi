@@ -16,7 +16,7 @@ export class ListPage implements OnInit {
 
   eventos = ['Partido de fútbol', 'Beerpong', 'Fiesta universitaria','Picnic en la UA', 'Torneo de paddle','Cervezas en mi casa', 'Partido de baloncesto'];
   public items: Array<Publi>=[];
-  public anuncio: Array<Publi>=[];
+  
 
   constructor(private router:Router,private storage:Storage) {
     for (let i = 1; i < 11; i++) {
@@ -32,14 +32,6 @@ export class ListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.storage.get('anuncios').then((value) => {
-      this.anuncio = value
-    })
-  }
-
-  crearAnuncio(arg0: any) {
-    this.anuncio.push(arg0)
-    this.storage.set('anuncios',this.anuncio);
-    this.router.navigateByUrl('list');
+    
   }
 }

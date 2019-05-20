@@ -16,6 +16,7 @@ export class MuroPublicacionComponent implements OnInit {
   async openModal(){
     var modal = await this.modalController.create({
       component: PublicacionPage,
+      cssClass:'mymodal',
       componentProps:{
         publicacion : this.publicacion
       }
