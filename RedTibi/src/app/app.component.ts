@@ -44,6 +44,8 @@ export class AppComponent implements OnInit{
   }
   logout(){
     this.conectado = false;
+    this.login = true;
+    this.registro = false;
     this.storage.remove('token');
     
   }

@@ -5,7 +5,7 @@ import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', component:AppComponent},
+  { path: '', loadChildren: './AA_Muro/list/list.module#ListPageModule'},
   { path: 'list', loadChildren: './AA_Muro/list/list.module#ListPageModule'},
   { path: 'contactos', loadChildren: './contactos/contactos.module#ContactosPageModule' },
   { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },

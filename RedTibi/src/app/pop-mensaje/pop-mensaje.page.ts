@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Publi } from '../AA_Muro/publi';
 import { NavParams, ModalController } from '@ionic/angular';
 
@@ -15,6 +15,7 @@ export class PopMensajePage implements OnInit {
   titulo=null;
   message="";
   p:Publi = new Publi();
+  @ViewChild('myChat') content:any;
 
   public items: Array<Publi>=[];
   public mensajePropio: Array<string>=["Holiiii", "¿Que tal te va?"];
