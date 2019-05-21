@@ -22,11 +22,13 @@
 
     <!-- Lista de eventos a los que asistirá el usuario -->
     <ion-list *ngIf="showCreados">
-      <ion-card *ngFor="let item of items;">
-        <ion-card-header>
-            <ion-card-title>{{item.event}}</ion-card-title>
-            <ion-card-subtitle>{{item.date}}</ion-card-subtitle>
-        </ion-card-header>
+      <ion-card *ngFor="let item of items;" style="border: 3px solid;border-radius: 20px;">
+        <ion-item color="secondary">
+          <ion-card-header color="secondary">
+              <ion-card-title>{{item.event}}</ion-card-title>
+          </ion-card-header>
+          <ion-note slot="end"><b>{{item.date}}</b></ion-note>
+        </ion-item>
         <ion-card-content>
           <img [src]="'../../assets/events/'+ item.event + '.jpg'" style="margin:auto;width:100%;height: 150px;"/>
           <br>
@@ -48,11 +50,13 @@
 
     <!-- Lista de eventos creados por el usuario -->
     <ion-list *ngIf="showAsistir">
-        <ion-card *ngFor="let item of items2;">
-          <ion-card-header>
-              <ion-card-title>{{item.event}}</ion-card-title>
-              <ion-card-subtitle>{{item.date}}</ion-card-subtitle>
-          </ion-card-header>
+        <ion-card *ngFor="let item of items2;" style="border: 3px solid;border-radius: 20px;">
+            <ion-item color="secondary">
+              <ion-card-header color="secondary">
+                <ion-card-title>{{item.event}}</ion-card-title>
+              </ion-card-header>
+              <ion-note slot="end"><b>{{item.date}}</b></ion-note>
+            </ion-item>
           <ion-card-content>
             <img [src]="'../../assets/events/'+ item.event + '.jpg'" style="margin:auto;width:100%;height: 150px;"/>
             <br>
@@ -74,12 +78,15 @@
 
       <!-- Lista de eventos pendientes de aceptacion del usuario -->
     <ion-list *ngIf="showPendientes">
-        <ion-card *ngFor="let item of items3; let i = index">
-          <ion-card-header>
-              <ion-card-title>{{item.event}}</ion-card-title>
-              <ion-card-subtitle>{{item.date}}</ion-card-subtitle>
-          </ion-card-header>
+        <ion-card *ngFor="let item of items3; let i = index" style="border: 3px solid;border-radius: 20px;">
+            <ion-item color="secondary">
+              <ion-card-header color="secondary">
+                <ion-card-title>{{item.event}}</ion-card-title>
+              </ion-card-header>
+              <ion-note slot="end"><b>{{item.date}}</b></ion-note>
+            </ion-item>
           <ion-card-content>
+            <br>
             <img [src]="'../../assets/events/'+ item.event + '.jpg'" style="margin:auto;width:100%;height: 150px;"/>
             <br>
             {{item.description}}
