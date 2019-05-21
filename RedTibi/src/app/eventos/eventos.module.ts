@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core'
+import { IonicStorageModule } from '@ionic/storage';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule,    
+    IonicStorageModule.forRoot(),
     TranslateModule.forChild(),
     RouterModule.forChild(routes)
   ],

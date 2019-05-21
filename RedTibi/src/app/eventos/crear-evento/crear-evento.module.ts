@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import {TranslateModule} from '@ngx-translate/core'
 
+import { IonicStorageModule } from '@ionic/storage';
+
 import { CrearEventoPage } from './crear-evento.page';
 import { ReactiveFormsModule } from '@angular/forms'
 
@@ -21,6 +23,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    IonicStorageModule.forRoot(),
     RouterModule.forChild(routes),
     TranslateModule.forChild(),
     ReactiveFormsModule

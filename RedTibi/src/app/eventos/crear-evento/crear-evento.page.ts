@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-crear-evento',
@@ -19,22 +20,24 @@ export class CrearEventoPage implements OnInit {
     caracter:['',Validators.required]
   });
 
-  constructor(private fb:FormBuilder,private router:Router) { }
+  constructor(private fb:FormBuilder,private router:Router,private storage:Storage) { }
 
   ngOnInit() {
   }
+  file:Blob=null;
   imageSrc: string = null;
   getPictures(event:any){
     if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
+      this.file = event.target.files[0];      
       const reader = new FileReader();
-      reader.onload = e => this.imageSrc = reader.result+"";
-      reader.readAsDataURL(file);
+      reader.onload = () => this.imageSrc = reader.result+"";
+      reader.readAsDataURL(this.file);
     }
   }
 
   do(){
-    console.log(this.onEventForm.get('titulo'))
+    this.router.navigateByUrl('eventos');
+    this.storage.set("crearEvento",true)
   }
 
   

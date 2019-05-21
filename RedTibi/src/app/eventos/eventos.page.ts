@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-eventos',
@@ -26,7 +27,7 @@ export class EventosPage implements OnInit {
   public items2: Array<{ event: string; date: string; description:string; numLikes:any;numComents:any}> = [];
   public items3: Array<{ event: string; date: string; description:string; numLikes:any;numComents:any}> = [];
 
-  constructor() {
+  constructor(private storage:Storage) {
     this.asistir = ['Partido de fútbol', 'Beerpong', 'Fiesta universitaria'];
     this.creados = ['Picnic en la UA', 'Torneo de paddle'];
     this.pendientes = ['Cervezas en mi casa', 'Partido de baloncesto'];
@@ -49,6 +50,8 @@ export class EventosPage implements OnInit {
         numComents:Math.floor(Math.random()*100)
       });
     }
+    
+    
     for (let i = 0; i < this.creados.length; i++) {
       this.items2.push({
         event: this.creados[i],
@@ -70,6 +73,19 @@ export class EventosPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+  ionViewWillEnter(){
+    this.storage.get('crearEvento').then((value) => {
+      if(value===true){
+        this.items2.push({
+          event: "Presentacion",
+          date: "21/05/2019",
+          description: "Hola, bienvenidos a la demo de gcs",
+          numLikes:Math.floor(Math.random()*100),
+          numComents:Math.floor(Math.random()*100)
+        });
+      }
+    }) 
   }
 
   segmentChanged(ev: any) {
